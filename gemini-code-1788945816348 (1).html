@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Энергия кочевников — Натуральный курут с сублимированными ягодами</title>
+    <meta name="description" content="Натуральный десерт на основе традиционного башкирского курута с добавлением сублимированных лесных ягод. Проект поддержан Фондом содействия инновациям.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8b263e;
+            --primary-dark: #5c1424;
+            --primary-light: #a83852;
+            --secondary: #d97736;
+            --bg-light: #faf7f2;
+            --bg-card: #ffffff;
+            --text-main: #242424;
+            --text-muted: #666666;
+            --border-color: #ebdcd0;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 9999px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section {
+            scroll-margin-top: 86px;
+        }
+
+        /* Floating Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 18px rgba(139, 38, 62, 0.35);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(16px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(139, 38, 62, 0.45);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--primary-dark);
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--primary-light);
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Top Notification Bar */
+        .top-grant-banner {
+            background: #1b263b;
+            color: #f1f5f9;
+            font-size: 0.85rem;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .top-grant-banner .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .top-grant-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .top-grant-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #10b981;
+            box-shadow: 0 0 8px #10b981;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(250, 247, 242, 0.95);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 76px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: var(--primary-dark);
+        }
+
+        .brand-logo .logo-symbol {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 10px rgba(139, 38, 62, 0.25);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 80px;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.05fr;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .hero-tagline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #f4e8e1;
+            color: var(--primary-dark);
+            padding: 8px 18px;
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            line-height: 1.15;
+            margin-bottom: 22px;
+            color: var(--primary-dark);
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: #4a4a4a;
+            margin-bottom: 32px;
+            max-width: 520px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 28px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 24px;
+        }
+
+        .badge-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .badge-item .num {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .badge-item .lbl {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Hero Product Card - Clean, No Overlapping Elements */
+        .product-card-preview {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            border: 1.5px solid var(--border-color);
+            padding: 36px 32px;
+            box-shadow: 0 16px 36px rgba(139, 38, 62, 0.08);
+            text-align: center;
+        }
+
+        .product-card-image-wrapper {
+            width: 100%;
+            max-width: 440px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            background: radial-gradient(circle, #fff3e8 0%, rgba(255, 255, 255, 0) 72%);
+            padding: 14px;
+        }
+
+        .main-product-img {
+            width: 100%;
+            height: auto;
+            max-height: 320px;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(139, 38, 62, 0.12));
+            transition: transform 0.3s ease;
+        }
+
+        .main-product-img:hover {
+            transform: scale(1.03);
+        }
+
+        .product-title {
+            font-size: 1.55rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .nutrition-row {
+            background: #fdf8f4;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            display: inline-flex;
+            gap: 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #444;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Grant Section - Clean, Focused on FASIE (Фонд АС) */
+        .grant-section {
+            background: #1e293b;
+            color: #ffffff;
+            padding: 56px 0;
+            border-radius: var(--radius-lg);
+            margin: 20px auto 60px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .grant-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 24px;
+        }
+
+        .grant-tag {
+            display: inline-block;
+            color: #38bdf8;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .grant-logo-wrapper {
+            margin-bottom: 28px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .grant-logo-box {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            padding: 16px 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .grant-logo-box img {
+            max-width: 260px;
+            height: auto;
+            max-height: 60px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .grant-statement {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 22px 28px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid #38bdf8;
+            margin-bottom: 28px;
+            text-align: left;
+            color: #f8fafc;
+        }
+
+        .grant-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            text-align: left;
+        }
+
+        .grant-detail-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-sm);
+            padding: 14px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .grant-detail-card .lbl {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .grant-detail-card .val {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        /* Section Layouts */
+        .section {
+            padding: 75px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 740px;
+            margin: 0 auto 50px;
+        }
+
+        .section-tag {
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* Simple About / Features */
+        .simple-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 32px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: #faeae6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Flavors Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 26px;
+        }
+
+        .flavor-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease;
+        }
+
+        .flavor-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .flavor-banner {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flavor-1 { background: linear-gradient(135deg, #ffd7de 0%, #ffabb8 100%); }
+        .flavor-2 { background: linear-gradient(135deg, #d8e5ff 0%, #a9c6fc 100%); }
+        .flavor-3 { background: linear-gradient(135deg, #ffe2cc 0%, #ffba88 100%); }
+        .flavor-4 { background: linear-gradient(135deg, #e4d8ff 0%, #c0a8f8 100%); }
+
+        .flavor-body {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flavor-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .flavor-body p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* SHORTENED TECH SECTION */
+        .tech-short-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .tech-step-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: 32px 28px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            transition: transform 0.25s ease;
+        }
+
+        .tech-step-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tech-step-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .tech-step-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        .tech-step-card p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* ARTISTIC MOUNTAINS, YURT AND CAMPFIRE SECTION */
+        .yurt-section {
+            background: linear-gradient(180deg, var(--bg-light) 0%, #f3e2d6 45%, #e0c5b5 75%, #24141e 100%);
+            padding-top: 70px;
+            margin-top: 30px;
+        }
+
+        .yurt-text-wrap {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 20px;
+            padding: 0 24px;
+        }
+
+        .yurt-tag {
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .yurt-title {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .yurt-desc {
+            font-size: 1.05rem;
+            color: #4a3d3d;
+            line-height: 1.6;
+        }
+
+        .yurt-svg-box {
+            width: 100%;
+            display: block;
+            line-height: 0;
+            margin-bottom: -2px;
+        }
+
+        .yurt-scene-svg {
+            width: 100%;
+            height: auto;
+            min-height: 280px;
+            max-height: 440px;
+            display: block;
+        }
+
+        /* Footer - Clean, Light Typography on Dark, No Red on Black */
+        .footer {
+            background: #1e1e24;
+            color: #cbd5e1;
+            padding: 54px 0 28px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 36px;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-col p {
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding-top: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            .nutrition-row {
+                flex-wrap: wrap;
+                gap: 12px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP GRANT NOTIFICATION -->
+    <div class="top-grant-banner">
+        <div class="container">
+            <div class="top-grant-badge">
+                Программа «Студенческий стартап»
+            </div>
+            <div>
+                Договор № 2068ГСCC27/107905 • Фонд содействия инновациям
+            </div>
+            <div style="opacity: 0.85;">
+                Республика Башкортостан, г. Стерлитамак
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="brand-logo">
+                <div class="logo-symbol">ЭК</div>
+                <div>
+                    <div>Энергия кочевников</div>
+                    <div style="font-size: 0.72rem; font-weight: 500; color: var(--secondary); letter-spacing: 0.5px;">НАТУРАЛЬНЫЙ ДЕСЕРТ</div>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#grant-info">Поддержка Фонда</a></li>
+                <li><a href="#about">О десерте</a></li>
+                <li><a href="#flavors">Вкусы</a></li>
+                <li><a href="#tech">Технология</a></li>
+                <li><a href="#heritage">Традиции</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <div class="hero-tagline">
+                    <span>🍓</span> Традиционный курут + Сублимированные ягоды
+                </div>
+                <h1 class="hero-title">
+                    Энергия кочевников <br>
+                    <span>теперь с ягодами!</span>
+                </h1>
+                <p class="hero-desc">
+                    Натуральный десерт на основе традиционного башкирского курута с добавлением сублимированных лесных ягод. Простой, чистый состав и природная польза в каждом кусочке.
+                </p>
+                <div class="hero-badges">
+                    <div class="badge-item">
+                        <span class="num">100%</span>
+                        <span class="lbl">Натуральный состав</span>
+                    </div>
+                    <div class="badge-item">
+                        <span class="num">0%</span>
+                        <span class="lbl">Без сахара и химии</span>
+                    </div>
+                    <div class="badge-item">
+                        <span class="num">38г</span>
+                        <span class="lbl">Молочный белок</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card: Clean, Large Logo, No Overlaps -->
+            <div class="hero-visual">
+                <div class="product-card-preview">
+                    <div class="product-card-image-wrapper">
+                        <img src="gpt-image-1.5_a_у_меня_проект_про_де (1).png" 
+                             alt="Десертный курут Разные Вкусы с сублимированными ягодами" 
+                             class="main-product-img">
+                    </div>
+                    <h3 class="product-title font-serif">Десертный курут «Разные Вкусы»</h3>
+                    <p class="product-desc">
+                        Основа из натурального сухого кисломолочного курута с цельными сублимированными ягодами земляники, черники, малины и брусники.
+                    </p>
+                    <div class="nutrition-row">
+                        <span>Белки: 38 г</span>
+                        <span>Жиры: 12 г</span>
+                        <span>Углеводы: 24 г</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRANT SECTION: FOCUSED EXCLUSIVELY ON FASIE (ФОНД АС) -->
+    <section id="grant-info" class="container">
+        <div class="grant-section">
+            <div class="grant-content">
+                <span class="grant-tag">Государственная поддержка проекта</span>
+
+                <!-- Single Official FASIE Logo -->
+                <div class="grant-logo-wrapper">
+                    <div class="grant-logo-box">
+                        <img src="fasie_ru_rgb_-_osnovnoj.svg.png" 
+                             alt="Фонд содействия инновациям">
+                    </div>
+                </div>
+
+                <!-- Mandatory TOR Statement -->
+                <div class="grant-statement">
+                    «Проект реализован при поддержке Фонда содействия инновациям в рамках программы «Студенческий стартап» мероприятия «Платформа университетского технологического предпринимательства» федерального проекта «Технологии»».
+                </div>
+
+                <!-- Contract Metadata -->
+                <div class="grant-details-grid">
+                    <div class="grant-detail-card">
+                        <div class="lbl">Договор гранта</div>
+                        <div class="val">№ 2068ГСCC27/107905</div>
+                    </div>
+                    <div class="grant-detail-card">
+                        <div class="lbl">Проект / Заявка</div>
+                        <div class="val">№ 107905 / СТС-514991</div>
+                    </div>
+                    <div class="grant-detail-card">
+                        <div class="lbl">Руководитель проекта</div>
+                        <div class="val">Саиткулов Данис Забирович</div>
+                    </div>
+                    <div class="grant-detail-card">
+                        <div class="lbl">Регион</div>
+                        <div class="val">Республика Башкортостан</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIMPLE ABOUT SECTION -->
+    <section id="about" class="section" style="background: #ffffff;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Простой и чистый продукт</span>
+                <h2 class="section-title font-serif">Традиции и спелые лесные ягоды</h2>
+                <p class="section-subtitle">
+                    Мы просто соединили проверенную веками основу и бережно высушенные ягоды.
+                </p>
+            </div>
+
+            <div class="simple-features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🥣</div>
+                    <h3>Башкирский курут</h3>
+                    <p>Питательный кисломолочный продукт с высоким содержанием натурального белка, кальция и полезных аминокислот.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍓</div>
+                    <h3>Сублимированные ягоды</h3>
+                    <p>Щадящая вакуумная сушка сохраняет до 98% витаминов, насыщенный аромат и яркий природный вкус лесных ягод.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Честный состав</h3>
+                    <p>Никаких искусственных красителей, ароматизаторов или консервантов. Только молоко и натуральные ягоды.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎒</div>
+                    <h3>Удобный перекус</h3>
+                    <p>Компактный формат, который удобно брать с собой на прогулку, тренировку или работу. Не тает и не портится в тепле.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLAVORS SECTION -->
+    <section id="flavors" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Вкусовая палитра</span>
+                <h2 class="section-title font-serif">Ягодная линейка</h2>
+                <p class="section-subtitle">
+                    Природный баланс сливочной кислинки курута и сладости спелых ягод.
+                </p>
+            </div>
+
+            <div class="products-grid">
+                <div class="flavor-card">
+                    <div class="flavor-banner flavor-1">
+                        <span style="font-size: 3rem;">🍓</span>
+                    </div>
+                    <div class="flavor-body">
+                        <h3>Дикая Земляника</h3>
+                        <p>Нежный курут с кусочками ароматной лесной земляники. Мягкий десертный вкус с ягодным послевкусием.</p>
+                    </div>
+                </div>
+
+                <div class="flavor-card">
+                    <div class="flavor-banner flavor-2">
+                        <span style="font-size: 3rem;">🫐</span>
+                    </div>
+                    <div class="flavor-body">
+                        <h3>Северная Черника</h3>
+                        <p>Классическая основа с добавлением отборной спелой черники, богатой природными антиоксидантами.</p>
+                    </div>
+                </div>
+
+                <div class="flavor-card">
+                    <div class="flavor-banner flavor-3">
+                        <span style="font-size: 3rem;">🍒</span>
+                    </div>
+                    <div class="flavor-body">
+                        <h3>Таёжная Брусника</h3>
+                        <p>Освежающее сочетание с приятной брусничной кислинкой для бодрости и тонуса.</p>
+                    </div>
+                </div>
+
+                <div class="flavor-card">
+                    <div class="flavor-banner flavor-4">
+                        <span style="font-size: 3rem;">🍇</span>
+                    </div>
+                    <div class="flavor-body">
+                        <h3>Черная Смородина</h3>
+                        <p>Яркий, насыщенный ягодный аромат и природный запас витамина C из спелых ягод смородины.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHORTENED TECH / SCIENTIFIC BACKGROUND SECTION -->
+    <section id="tech" class="section" style="background: #ffffff;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Научно-технический задел</span>
+                <h2 class="section-title font-serif">Разработка и технология</h2>
+                <p class="section-subtitle">
+                    Сочетание традиционной биотехнологии ферментации и щадящей низкотемпературной сушки ягод.
+                </p>
+            </div>
+
+            <div class="tech-short-grid">
+                <div class="tech-step-card">
+                    <div class="tech-step-badge">1</div>
+                    <h3>Биоферментация</h3>
+                    <p>Сбраживание натурального молока чистыми молочнокислыми культурами с получением плотной белковой основы традиционного курута.</p>
+                </div>
+
+                <div class="tech-step-card">
+                    <div class="tech-step-badge">2</div>
+                    <h3>Сублимация ягод</h3>
+                    <p>Вакуумное обезвоживание замороженных ягод (лиофилизация) без термической обработки, что сохраняет до 98% витаминов и природный вкус.</p>
+                </div>
+
+                <div class="tech-step-card">
+                    <div class="tech-step-badge">3</div>
+                    <h3>Рецептура и охрана РИД</h3>
+                    <p>Отработка стабильных пропорций курута и ягод, органолептические испытания и подготовка к регистрации прав на результат интеллектуальной деятельности.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTISTIC MOUNTAINS, YURT AND CAMPFIRE SECTION -->
+    <section id="heritage" class="yurt-section">
+        <div class="yurt-text-wrap">
+            <span class="yurt-tag">Наследие кочевников</span>
+            <h2 class="yurt-title font-serif">Горы и традиции Башкортостана</h2>
+            <p class="yurt-desc">
+                В предгорьях Южного Урала курут веками согревал кочевников у ночного костра и давал силы в долгих переходах. Мы сохраняем природную силу родного края в натуральном ягодном десерте.
+            </p>
+        </div>
+
+        <!-- Majestic Ural Mountains, Nomadic Yurt & Warm Campfire Landscape -->
+        <div class="yurt-svg-box">
+            <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" class="yurt-scene-svg">
+                <defs>
+                    <radialGradient id="fireGlow" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#ff9100" stop-opacity="0.95"/>
+                        <stop offset="35%" stop-color="#ff3d00" stop-opacity="0.6"/>
+                        <stop offset="70%" stop-color="#8b263e" stop-opacity="0.2"/>
+                        <stop offset="100%" stop-color="#1e1e24" stop-opacity="0"/>
+                    </radialGradient>
+                    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#faf7f2"/>
+                        <stop offset="35%" stop-color="#f5e1d3"/>
+                        <stop offset="70%" stop-color="#e8bfab"/>
+                        <stop offset="100%" stop-color="#c98a72"/>
+                    </linearGradient>
+                    <linearGradient id="mountFar" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#734252" stop-opacity="0.65"/>
+                        <stop offset="100%" stop-color="#4a2634" stop-opacity="0.95"/>
+                    </linearGradient>
+                    <linearGradient id="mountMid" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#522435" stop-opacity="0.9"/>
+                        <stop offset="100%" stop-color="#2c121d" stop-opacity="1"/>
+                    </linearGradient>
+                    <linearGradient id="hillFore" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#381926"/>
+                        <stop offset="100%" stop-color="#1e1e24"/>
+                    </linearGradient>
+                </defs>
+
+                <rect x="0" y="0" width="1200" height="420" fill="url(#skyGrad)"/>
+
+                <!-- 1. DISTANT MAJESTIC MOUNTAIN PEAKS -->
+                <path d="M 0,200 
+                         L 80,165 L 150,180 L 220,135 L 300,160 L 390,95 L 480,145 L 560,110 L 640,150 
+                         L 730,80 L 820,135 L 900,105 L 980,145 L 1070,90 L 1150,130 L 1200,105 
+                         L 1200,420 L 0,420 Z" 
+                      fill="url(#mountFar)"/>
+
+                <!-- 2. MIDGROUND MOUNTAINS & BASHKIR SHIKHAN RIDGES -->
+                <path d="M 0,240 
+                         Q 140,210 240,185 
+                         C 290,175 320,130 365,125 C 410,120 440,160 500,195 
+                         Q 620,215 700,180 
+                         C 760,160 800,115 850,110 C 900,105 940,150 1010,185 
+                         Q 1110,215 1200,175 
+                         L 1200,420 L 0,420 Z" 
+                      fill="url(#mountMid)"/>
+
+                <!-- 3. FOREGROUND STEPPE HILL (Solid base for Yurt & Campfire) -->
+                <path d="M 0,285 Q 320,235 680,270 T 1200,250 L 1200,420 L 0,420 Z" fill="url(#hillFore)"/>
+                <path d="M 0,335 Q 400,290 820,320 T 1200,300 L 1200,420 L 0,420 Z" fill="#1e1e24"/>
+
+                <!-- WARM CAMPFIRE GLOW AURA -->
+                <circle cx="750" cy="295" r="140" fill="url(#fireGlow)"/>
+
+                <!-- ======================================================= -->
+                <!-- PROMINENT NOMADIC YURT (КРУПНАЯ БАШКИРСКАЯ ЮРТА)        -->
+                <!-- ======================================================= -->
+                <g id="nomadic-yurt" transform="translate(350, 160)">
+                    <ellipse cx="130" cy="142" rx="125" ry="18" fill="#140810" opacity="0.65"/>
+                    <path d="M 15,85 L 245,85 L 240,138 C 240,148 190,155 130,155 C 70,155 20,148 20,138 Z" fill="#fcf8f2" stroke="#e6ded3" stroke-width="1.5"/>
+                    <path d="M 15,85 L 245,85 L 244,96 C 190,103 70,103 16,96 Z" fill="#8b263e"/>
+                    <path d="M 18,122 C 70,131 190,131 242,122 L 241,128 C 190,137 70,137 19,128 Z" fill="#8b263e"/>
+                    <path d="M 16,96 C 70,103 190,103 244,96 L 243,99 C 190,106 70,106 17,99 Z" fill="#d97736"/>
+                    <path d="M 112,88 L 148,88 L 148,150 C 138,153 122,153 112,150 Z" fill="#5c1424"/>
+                    <rect x="116" y="92" width="28" height="54" fill="#2d0a12" rx="3"/>
+                    <path d="M 116,92 L 144,92 L 144,96 L 116,96 Z" fill="#d97736"/>
+                    <path d="M 15,85 C 15,85 55,22 130,22 C 205,22 245,85 245,85 Z" fill="#ffffff" stroke="#ebdcd0" stroke-width="1.5"/>
+                    <path d="M 130,22 L 30,85 M 130,22 L 75,85 M 130,22 L 185,85 M 130,22 L 230,85" stroke="#d97736" stroke-width="2.2" opacity="0.75"/>
+                    <ellipse cx="130" cy="22" rx="28" ry="9" fill="#8b263e" stroke="#5c1424" stroke-width="1.5"/>
+                    <ellipse cx="130" cy="22" rx="20" ry="6" fill="#d97736"/>
+                    <ellipse cx="130" cy="22" rx="11" ry="3.5" fill="#2d0a12"/>
+                    <line x1="130" y1="16" x2="130" y2="28" stroke="#8b263e" stroke-width="1.5"/>
+                    <line x1="114" y1="22" x2="146" y2="22" stroke="#8b263e" stroke-width="1.5"/>
+                    <path d="M 130,16 C 126,5 138,-8 132,-22 C 126,-36 142,-50 136,-68 C 130,-82 144,-98 138,-115" 
+                          stroke="#ffffff" stroke-width="3" fill="none" opacity="0.45" stroke-linecap="round"/>
+                </g>
+
+                <!-- ======================================================= -->
+                <!-- WARM CAMPFIRE (ЯРКИЙ КОСТЁР РЯДОМ С ЮРТОЙ)              -->
+                <!-- ======================================================= -->
+                <g id="steppe-campfire" transform="translate(750, 305)">
+                    <ellipse cx="-38" cy="14" rx="11" ry="5.5" fill="#3a3036"/>
+                    <ellipse cx="-22" cy="20" rx="12" ry="6" fill="#4a4046"/>
+                    <ellipse cx="10" cy="21" rx="13" ry="6.5" fill="#3a3036"/>
+                    <ellipse cx="36" cy="15" rx="11" ry="5.5" fill="#4a4046"/>
+                    <ellipse cx="0" cy="22" rx="15" ry="7" fill="#2d252b"/>
+                    <line x1="-32" y1="16" x2="26" y2="-4" stroke="#5c3a21" stroke-width="9" stroke-linecap="round"/>
+                    <line x1="28" y1="16" x2="-26" y2="-4" stroke="#4a2e1a" stroke-width="9" stroke-linecap="round"/>
+                    <line x1="-20" y1="8" x2="20" y2="8" stroke="#3d2414" stroke-width="8" stroke-linecap="round"/>
+                    <ellipse cx="0" cy="8" rx="20" ry="7.5" fill="#ff3d00"/>
+                    <ellipse cx="0" cy="7" rx="13" ry="5" fill="#ffea00"/>
+                    <path d="M -20,8 C -26,-10 -9,-30 -3,-56 C 5,-36 20,-24 20,8 C 15,18 -15,18 -20,8 Z" fill="#ff3d00"/>
+                    <path d="M -14,8 C -17,-3 -5,-20 0,-40 C 5,-22 14,-11 14,8 C 9,14 -9,14 -14,8 Z" fill="#ff9100"/>
+                    <path d="M -9,8 C -11,0 -3,-12 0,-27 C 3,-14 9,-4 9,8 C 5,11 -5,11 -9,8 Z" fill="#ffea00"/>
+                    <ellipse cx="0" cy="5" rx="5" ry="8" fill="#ffffff" opacity="0.95"/>
+                    <circle cx="-9" cy="-62" r="2.2" fill="#ffea00"/>
+                    <circle cx="6" cy="-70" r="1.8" fill="#ff9100"/>
+                    <circle cx="-2" cy="-82" r="1.5" fill="#ffea00"/>
+                    <circle cx="13" cy="-54" r="1.9" fill="#ffea00"/>
+                    <circle cx="-15" cy="-45" r="1.6" fill="#ff9100"/>
+                    <circle cx="4" cy="-94" r="1.2" fill="#ffea00"/>
+                </g>
+
+                <g stroke="#3d2432" stroke-width="2" stroke-linecap="round" opacity="0.85">
+                    <line x1="120" y1="310" x2="112" y2="280"/>
+                    <line x1="128" y1="312" x2="126" y2="274"/>
+                    <line x1="136" y1="310" x2="144" y2="278"/>
+                    <line x1="1020" y1="290" x2="1012" y2="260"/>
+                    <line x1="1028" y1="292" x2="1027" y2="254"/>
+                    <line x1="1036" y1="291" x2="1046" y2="262"/>
+                </g>
+            </svg>
+        </div>
+    </section>
+
+    <!-- FOOTER: CLEAN, NO RED ON BLACK, NO DUPLICATES -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Энергия кочевников</h4>
+                    <p>
+                        Натуральный десерт на основе традиционного башкирского курута с добавлением сублимированных лесных ягод. Сила традиций Башкортостана.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Навигация</h4>
+                    <ul class="footer-links">
+                        <li><a href="#grant-info">Поддержка Фонда</a></li>
+                        <li><a href="#about">О десерте</a></li>
+                        <li><a href="#flavors">Линейка вкусов</a></li>
+                        <li><a href="#tech">Технология</a></li>
+                        <li><a href="#heritage">Традиции и юрта</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Проект и правообладатель</h4>
+                    <p style="margin-bottom: 6px;">
+                        <strong style="color: #ffffff;">Руководитель:</strong> Саиткулов Данис Забирович
+                    </p>
+                    <p style="margin-bottom: 6px;">
+                        <strong style="color: #ffffff;">Тема проекта:</strong> «Энергия кочевников теперь с ягодами!»
+                    </p>
+                    <p>
+                        Республика Башкортостан, г. Стерлитамак
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    © 2025–2026 Проект «Энергия кочевников». Все права защищены.
+                </div>
+                <div>
+                    Разработано в рамках выполнения этапа 2 Договора № 2068ГСCC27/107905
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Back-to-Top Button with Smooth Scrolling -->
+    <button id="backToTop" class="back-to-top" aria-label="Наверх" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script>
+        // Reveal / Hide Back-to-Top button on scroll
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 320) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Ensure smooth scroll for all internal hash links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
