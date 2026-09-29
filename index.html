@@ -564,8 +564,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            line-height: 1;
+        }
+
+        .flavor-banner svg {
+            width: 72px;
+            height: 72px;
+            display: block;
         }
 
         .flavor-1 { background: linear-gradient(135deg, #ffd7de 0%, #ffabb8 100%); }
@@ -956,7 +960,6 @@
                 <div class="hero-visual">
                     <div class="product-card-preview">
                         <div class="product-card-image-wrapper">
-                            <!-- ✅ ПРОСТОЕ ИМЯ ФАЙЛА ДЛЯ GITHUB PAGES -->
                             <img src="product.png"
                                  alt="Десертный курут «Разные Вкусы» с сублимированными ягодами"
                                  class="main-product-img"
@@ -985,7 +988,6 @@
 
                     <div class="grant-logo-wrapper">
                         <div class="grant-logo-box">
-                            <!-- ✅ ПРОСТОЕ ИМЯ ФАЙЛА ДЛЯ GITHUB PAGES -->
                             <img src="fasie.png"
                                  alt="Фонд содействия инновациям"
                                  width="260" height="60"
@@ -1068,32 +1070,85 @@
                 </div>
 
                 <div class="products-grid">
+                    <!-- 1. Земляника -->
                     <article class="flavor-card">
-                        <div class="flavor-banner flavor-1"><span aria-hidden="true">🍓</span></div>
+                        <div class="flavor-banner flavor-1">
+                            <svg viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M32 18 C22 18 16 26 16 36 C16 48 24 56 32 56 C40 56 48 48 48 36 C48 26 42 18 32 18 Z" fill="#dc3545"/>
+                                <circle cx="24" cy="32" r="1.6" fill="#ffe066"/>
+                                <circle cx="32" cy="30" r="1.6" fill="#ffe066"/>
+                                <circle cx="40" cy="32" r="1.6" fill="#ffe066"/>
+                                <circle cx="22" cy="42" r="1.6" fill="#ffe066"/>
+                                <circle cx="30" cy="40" r="1.6" fill="#ffe066"/>
+                                <circle cx="38" cy="42" r="1.6" fill="#ffe066"/>
+                                <circle cx="32" cy="50" r="1.6" fill="#ffe066"/>
+                                <path d="M32 8 L20 18 L26 20 L32 14 L38 20 L44 18 Z" fill="#2a9d8f"/>
+                            </svg>
+                        </div>
                         <div class="flavor-body">
                             <h3>Дикая Земляника</h3>
                             <p>Нежный курут с кусочками ароматной лесной земляники. Мягкий десертный вкус с ягодным послевкусием.</p>
                         </div>
                     </article>
 
+                    <!-- 2. Черника -->
                     <article class="flavor-card">
-                        <div class="flavor-banner flavor-2"><span aria-hidden="true">🫐</span></div>
+                        <div class="flavor-banner flavor-2">
+                            <svg viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <radialGradient id="bb-grad" cx="38%" cy="35%" r="65%">
+                                        <stop offset="0%" stop-color="#7a9eff"/>
+                                        <stop offset="100%" stop-color="#2b3c72"/>
+                                    </radialGradient>
+                                </defs>
+                                <circle cx="32" cy="38" r="20" fill="url(#bb-grad)"/>
+                                <path d="M32 18 L28 22 L30 22 L29 25 L35 25 L34 22 L36 22 Z" fill="#1a2650"/>
+                                <circle cx="32" cy="22" r="2.8" fill="#1a2650"/>
+                                <ellipse cx="25" cy="33" rx="4" ry="3" fill="#a3bbff" opacity="0.55"/>
+                            </svg>
+                        </div>
                         <div class="flavor-body">
                             <h3>Северная Черника</h3>
                             <p>Классическая основа с добавлением отборной спелой черники, богатой природными антиоксидантами.</p>
                         </div>
                     </article>
 
+                    <!-- 3. Брусника -->
                     <article class="flavor-card">
-                        <div class="flavor-banner flavor-3"><span aria-hidden="true">🍒</span></div>
+                        <div class="flavor-banner flavor-3">
+                            <svg viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M32 14 C32 22 26 26 24 30" stroke="#2a9d8f" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                <path d="M32 14 C32 22 38 26 40 30" stroke="#2a9d8f" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                <ellipse cx="32" cy="12" rx="7" ry="3" fill="#2a9d8f"/>
+                                <circle cx="24" cy="42" r="14" fill="#c81e2d"/>
+                                <circle cx="40" cy="42" r="14" fill="#e63946"/>
+                                <ellipse cx="20" cy="37" rx="3.5" ry="2.5" fill="#ff9aa2" opacity="0.75"/>
+                                <ellipse cx="36" cy="37" rx="3.5" ry="2.5" fill="#ff9aa2" opacity="0.75"/>
+                            </svg>
+                        </div>
                         <div class="flavor-body">
                             <h3>Таёжная Брусника</h3>
                             <p>Освежающее сочетание с приятной брусничной кислинкой для бодрости и тонуса.</p>
                         </div>
                     </article>
 
+                    <!-- 4. Смородина -->
                     <article class="flavor-card">
-                        <div class="flavor-banner flavor-4"><span aria-hidden="true">🍇</span></div>
+                        <div class="flavor-banner flavor-4">
+                            <svg viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M32 8 L32 20" stroke="#2a9d8f" stroke-width="2.5" stroke-linecap="round"/>
+                                <ellipse cx="32" cy="8" rx="6" ry="3" fill="#2a9d8f"/>
+                                <circle cx="22" cy="32" r="8" fill="#5c2e6d"/>
+                                <circle cx="42" cy="32" r="8" fill="#5c2e6d"/>
+                                <circle cx="32" cy="40" r="8.5" fill="#6b3580"/>
+                                <circle cx="22" cy="48" r="8" fill="#6b3580"/>
+                                <circle cx="42" cy="48" r="8" fill="#6b3580"/>
+                                <circle cx="32" cy="56" r="7" fill="#5c2e6d"/>
+                                <circle cx="19" cy="29" r="1.8" fill="#b088c0" opacity="0.75"/>
+                                <circle cx="39" cy="29" r="1.8" fill="#b088c0" opacity="0.75"/>
+                                <circle cx="29" cy="37" r="1.8" fill="#b088c0" opacity="0.75"/>
+                            </svg>
+                        </div>
                         <div class="flavor-body">
                             <h3>Чёрная Смородина</h3>
                             <p>Яркий, насыщенный ягодный аромат и природный запас витамина C из спелых ягод смородины.</p>
@@ -1177,20 +1232,15 @@
 
                     <rect x="0" y="0" width="1200" height="420" fill="url(#skyGrad)"/>
 
-                    <!-- Дальние горы -->
                     <path d="M 0,200 L 80,165 L 150,180 L 220,135 L 300,160 L 390,95 L 480,145 L 560,110 L 640,150 L 730,80 L 820,135 L 900,105 L 980,145 L 1070,90 L 1150,130 L 1200,105 L 1200,420 L 0,420 Z" fill="url(#mountFar)"/>
 
-                    <!-- Средние горы (шиханы) -->
                     <path d="M 0,240 Q 140,210 240,185 C 290,175 320,130 365,125 C 410,120 440,160 500,195 Q 620,215 700,180 C 760,160 800,115 850,110 C 900,105 940,150 1010,185 Q 1110,215 1200,175 L 1200,420 L 0,420 Z" fill="url(#mountMid)"/>
 
-                    <!-- Передний план -->
                     <path d="M 0,285 Q 320,235 680,270 T 1200,250 L 1200,420 L 0,420 Z" fill="url(#hillFore)"/>
                     <path d="M 0,335 Q 400,290 820,320 T 1200,300 L 1200,420 L 0,420 Z" fill="#1e1e24"/>
 
-                    <!-- Свечение костра -->
                     <circle cx="750" cy="295" r="140" fill="url(#fireGlow)"/>
 
-                    <!-- Юрта -->
                     <g id="nomadic-yurt" transform="translate(350, 160)">
                         <ellipse cx="130" cy="142" rx="125" ry="18" fill="#140810" opacity="0.65"/>
                         <path d="M 15,85 L 245,85 L 240,138 C 240,148 190,155 130,155 C 70,155 20,148 20,138 Z" fill="#fcf8f2" stroke="#e6ded3" stroke-width="1.5"/>
@@ -1210,7 +1260,6 @@
                         <path d="M 130,16 C 126,5 138,-8 132,-22 C 126,-36 142,-50 136,-68 C 130,-82 144,-98 138,-115" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.45" stroke-linecap="round"/>
                     </g>
 
-                    <!-- Костёр -->
                     <g id="steppe-campfire" transform="translate(750, 305)">
                         <ellipse cx="-38" cy="14" rx="11" ry="5.5" fill="#3a3036"/>
                         <ellipse cx="-22" cy="20" rx="12" ry="6" fill="#4a4046"/>
@@ -1234,7 +1283,6 @@
                         <circle cx="4" cy="-94" r="1.2" fill="#ffea00"/>
                     </g>
 
-                    <!-- Трава -->
                     <g stroke="#3d2432" stroke-width="2" stroke-linecap="round" opacity="0.85">
                         <line x1="120" y1="310" x2="112" y2="280"/>
                         <line x1="128" y1="312" x2="126" y2="274"/>
