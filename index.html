@@ -246,7 +246,6 @@
         .hero-tagline {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
             background: #f4e8e1;
             color: var(--primary-dark);
             padding: 8px 18px;
@@ -642,18 +641,30 @@
             line-height: 1.55;
         }
 
-        /* ---------- Yurt / Heritage ---------- */
+        /* ---------- Yurt / Heritage (текст поверх неба) ---------- */
         .yurt-section {
-            background: linear-gradient(180deg, var(--bg-light) 0%, #f3e2d6 45%, #e0c5b5 75%, #24141e 100%);
-            padding-top: 70px;
+            position: relative;
+            background: #faf7f2;
+            padding-top: 0;
             margin-top: 30px;
+            overflow: hidden;
+        }
+
+        .yurt-stage {
+            position: relative;
+            width: 100%;
         }
 
         .yurt-text-wrap {
-            text-align: center;
-            max-width: 760px;
-            margin: 0 auto 20px;
+            position: absolute;
+            top: 5.5%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            max-width: 780px;
             padding: 0 24px;
+            text-align: center;
+            z-index: 2;
         }
 
         .yurt-tag {
@@ -670,6 +681,7 @@
             font-size: 2.2rem;
             color: var(--primary-dark);
             margin-bottom: 12px;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
         }
 
         .yurt-desc {
@@ -688,8 +700,6 @@
         .yurt-scene-svg {
             width: 100%;
             height: auto;
-            min-height: 280px;
-            max-height: 440px;
             display: block;
         }
 
@@ -803,6 +813,17 @@
                 grid-template-columns: 1fr;
                 gap: 28px;
             }
+
+            /* На планшете уменьшаем текст, чтобы он умещался в небе */
+            .yurt-title {
+                font-size: 1.75rem;
+            }
+            .yurt-desc {
+                font-size: 0.95rem;
+            }
+            .yurt-text-wrap {
+                top: 4.5%;
+            }
         }
 
         @media (max-width: 560px) {
@@ -865,15 +886,28 @@
                 padding: 14px 20px;
             }
 
-            .yurt-title {
-                font-size: 1.7rem;
-            }
-
             .back-to-top {
                 bottom: 18px;
                 right: 18px;
                 width: 44px;
                 height: 44px;
+            }
+
+            /* На мобильном возвращаем текст ПОД картинку (иначе не влезет) */
+            .yurt-text-wrap {
+                position: static;
+                transform: none;
+                padding: 40px 18px 0;
+                max-width: 100%;
+            }
+            .yurt-section {
+                padding-top: 0;
+            }
+            .yurt-title {
+                font-size: 1.6rem;
+            }
+            .yurt-desc {
+                font-size: 0.95rem;
             }
         }
 
@@ -932,7 +966,7 @@
             <div class="container hero-grid">
                 <div>
                     <div class="hero-tagline">
-                        <span aria-hidden="true">🍓</span> Традиционный курут + Сублимированные ягоды
+                        Традиционный курут + Сублимированные ягоды
                     </div>
                     <h1 class="hero-title">
                         Энергия кочевников <br>
@@ -1070,7 +1104,6 @@
                 </div>
 
                 <div class="products-grid">
-                    <!-- 1. Земляника -->
                     <article class="flavor-card">
                         <div class="flavor-banner flavor-1">
                             <svg viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -1091,7 +1124,6 @@
                         </div>
                     </article>
 
-                    <!-- 2. Черника -->
                     <article class="flavor-card">
                         <div class="flavor-banner flavor-2">
                             <svg viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -1113,7 +1145,6 @@
                         </div>
                     </article>
 
-                    <!-- 3. Брусника -->
                     <article class="flavor-card">
                         <div class="flavor-banner flavor-3">
                             <svg viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -1132,7 +1163,6 @@
                         </div>
                     </article>
 
-                    <!-- 4. Смородина -->
                     <article class="flavor-card">
                         <div class="flavor-banner flavor-4">
                             <svg viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -1191,107 +1221,121 @@
             </div>
         </section>
 
-        <!-- HERITAGE -->
+        <!-- HERITAGE (текст поверх неба) -->
         <section id="heritage" class="yurt-section">
-            <div class="yurt-text-wrap">
-                <span class="yurt-tag">Наследие кочевников</span>
-                <h2 class="yurt-title font-serif">Горы и традиции Башкортостана</h2>
-                <p class="yurt-desc">
-                    В предгорьях Южного Урала курут веками согревал кочевников у ночного костра и давал силы в долгих переходах. Мы сохраняем природную силу родного края в натуральном ягодном десерте.
-                </p>
-            </div>
+            <div class="yurt-stage">
+                <div class="yurt-text-wrap">
+                    <span class="yurt-tag">Наследие кочевников</span>
+                    <h2 class="yurt-title font-serif">Горы и традиции Башкортостана</h2>
+                    <p class="yurt-desc">
+                        В предгорьях Южного Урала курут веками согревал кочевников у ночного костра и давал силы в долгих переходах. Мы сохраняем природную силу родного края в натуральном ягодном десерте.
+                    </p>
+                </div>
 
-            <div class="yurt-svg-box">
-                <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" class="yurt-scene-svg" role="img" aria-label="Пейзаж: горы Южного Урала, башкирская юрта и костёр">
-                    <defs>
-                        <radialGradient id="fireGlow" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#ff9100" stop-opacity="0.95"/>
-                            <stop offset="35%" stop-color="#ff3d00" stop-opacity="0.6"/>
-                            <stop offset="70%" stop-color="#8b263e" stop-opacity="0.2"/>
-                            <stop offset="100%" stop-color="#1e1e24" stop-opacity="0"/>
-                        </radialGradient>
-                        <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#faf7f2"/>
-                            <stop offset="35%" stop-color="#f5e1d3"/>
-                            <stop offset="70%" stop-color="#e8bfab"/>
-                            <stop offset="100%" stop-color="#c98a72"/>
-                        </linearGradient>
-                        <linearGradient id="mountFar" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#734252" stop-opacity="0.65"/>
-                            <stop offset="100%" stop-color="#4a2634" stop-opacity="0.95"/>
-                        </linearGradient>
-                        <linearGradient id="mountMid" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#522435" stop-opacity="0.9"/>
-                            <stop offset="100%" stop-color="#2c121d" stop-opacity="1"/>
-                        </linearGradient>
-                        <linearGradient id="hillFore" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#381926"/>
-                            <stop offset="100%" stop-color="#1e1e24"/>
-                        </linearGradient>
-                    </defs>
+                <div class="yurt-svg-box">
+                    <svg viewBox="0 0 1200 620" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" class="yurt-scene-svg" role="img" aria-label="Пейзаж: горы Южного Урала, башкирская юрта и костёр">
+                        <defs>
+                            <radialGradient id="fireGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#ff9100" stop-opacity="0.95"/>
+                                <stop offset="35%" stop-color="#ff3d00" stop-opacity="0.6"/>
+                                <stop offset="70%" stop-color="#8b263e" stop-opacity="0.2"/>
+                                <stop offset="100%" stop-color="#1e1e24" stop-opacity="0"/>
+                            </radialGradient>
+                            <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#fdf6ee"/>
+                                <stop offset="25%" stop-color="#faeadb"/>
+                                <stop offset="50%" stop-color="#f5e1d3"/>
+                                <stop offset="75%" stop-color="#e8bfab"/>
+                                <stop offset="100%" stop-color="#c98a72"/>
+                            </linearGradient>
+                            <linearGradient id="mountFar" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#734252" stop-opacity="0.65"/>
+                                <stop offset="100%" stop-color="#4a2634" stop-opacity="0.95"/>
+                            </linearGradient>
+                            <linearGradient id="mountMid" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#522435" stop-opacity="0.9"/>
+                                <stop offset="100%" stop-color="#2c121d" stop-opacity="1"/>
+                            </linearGradient>
+                            <linearGradient id="hillFore" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#381926"/>
+                                <stop offset="100%" stop-color="#1e1e24"/>
+                            </linearGradient>
+                        </defs>
 
-                    <rect x="0" y="0" width="1200" height="420" fill="url(#skyGrad)"/>
+                        <!-- Небо на всю высоту (теперь выше) -->
+                        <rect x="0" y="0" width="1200" height="620" fill="url(#skyGrad)"/>
 
-                    <path d="M 0,200 L 80,165 L 150,180 L 220,135 L 300,160 L 390,95 L 480,145 L 560,110 L 640,150 L 730,80 L 820,135 L 900,105 L 980,145 L 1070,90 L 1150,130 L 1200,105 L 1200,420 L 0,420 Z" fill="url(#mountFar)"/>
+                        <!-- Всё содержимое пейзажа сдвинуто вниз на 200 — сверху осталось чистое небо под текст -->
+                        <g transform="translate(0, 200)">
+                            <!-- Дальние горы -->
+                            <path d="M 0,200 L 80,165 L 150,180 L 220,135 L 300,160 L 390,95 L 480,145 L 560,110 L 640,150 L 730,80 L 820,135 L 900,105 L 980,145 L 1070,90 L 1150,130 L 1200,105 L 1200,420 L 0,420 Z" fill="url(#mountFar)"/>
 
-                    <path d="M 0,240 Q 140,210 240,185 C 290,175 320,130 365,125 C 410,120 440,160 500,195 Q 620,215 700,180 C 760,160 800,115 850,110 C 900,105 940,150 1010,185 Q 1110,215 1200,175 L 1200,420 L 0,420 Z" fill="url(#mountMid)"/>
+                            <!-- Средние горы -->
+                            <path d="M 0,240 Q 140,210 240,185 C 290,175 320,130 365,125 C 410,120 440,160 500,195 Q 620,215 700,180 C 760,160 800,115 850,110 C 900,105 940,150 1010,185 Q 1110,215 1200,175 L 1200,420 L 0,420 Z" fill="url(#mountMid)"/>
 
-                    <path d="M 0,285 Q 320,235 680,270 T 1200,250 L 1200,420 L 0,420 Z" fill="url(#hillFore)"/>
-                    <path d="M 0,335 Q 400,290 820,320 T 1200,300 L 1200,420 L 0,420 Z" fill="#1e1e24"/>
+                            <!-- Передний план -->
+                            <path d="M 0,285 Q 320,235 680,270 T 1200,250 L 1200,420 L 0,420 Z" fill="url(#hillFore)"/>
+                            <path d="M 0,335 Q 400,290 820,320 T 1200,300 L 1200,420 L 0,420 Z" fill="#1e1e24"/>
 
-                    <circle cx="750" cy="295" r="140" fill="url(#fireGlow)"/>
+                            <!-- Свечение костра -->
+                            <circle cx="750" cy="295" r="140" fill="url(#fireGlow)"/>
 
-                    <g id="nomadic-yurt" transform="translate(350, 160)">
-                        <ellipse cx="130" cy="142" rx="125" ry="18" fill="#140810" opacity="0.65"/>
-                        <path d="M 15,85 L 245,85 L 240,138 C 240,148 190,155 130,155 C 70,155 20,148 20,138 Z" fill="#fcf8f2" stroke="#e6ded3" stroke-width="1.5"/>
-                        <path d="M 15,85 L 245,85 L 244,96 C 190,103 70,103 16,96 Z" fill="#8b263e"/>
-                        <path d="M 18,122 C 70,131 190,131 242,122 L 241,128 C 190,137 70,137 19,128 Z" fill="#8b263e"/>
-                        <path d="M 16,96 C 70,103 190,103 244,96 L 243,99 C 190,106 70,106 17,99 Z" fill="#d97736"/>
-                        <path d="M 112,88 L 148,88 L 148,150 C 138,153 122,153 112,150 Z" fill="#5c1424"/>
-                        <rect x="116" y="92" width="28" height="54" fill="#2d0a12" rx="3"/>
-                        <path d="M 116,92 L 144,92 L 144,96 L 116,96 Z" fill="#d97736"/>
-                        <path d="M 15,85 C 15,85 55,22 130,22 C 205,22 245,85 245,85 Z" fill="#ffffff" stroke="#ebdcd0" stroke-width="1.5"/>
-                        <path d="M 130,22 L 30,85 M 130,22 L 75,85 M 130,22 L 185,85 M 130,22 L 230,85" stroke="#d97736" stroke-width="2.2" opacity="0.75"/>
-                        <ellipse cx="130" cy="22" rx="28" ry="9" fill="#8b263e" stroke="#5c1424" stroke-width="1.5"/>
-                        <ellipse cx="130" cy="22" rx="20" ry="6" fill="#d97736"/>
-                        <ellipse cx="130" cy="22" rx="11" ry="3.5" fill="#2d0a12"/>
-                        <line x1="130" y1="16" x2="130" y2="28" stroke="#8b263e" stroke-width="1.5"/>
-                        <line x1="114" y1="22" x2="146" y2="22" stroke="#8b263e" stroke-width="1.5"/>
-                        <path d="M 130,16 C 126,5 138,-8 132,-22 C 126,-36 142,-50 136,-68 C 130,-82 144,-98 138,-115" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.45" stroke-linecap="round"/>
-                    </g>
+                            <!-- Юрта -->
+                            <g id="nomadic-yurt" transform="translate(350, 160)">
+                                <ellipse cx="130" cy="142" rx="125" ry="18" fill="#140810" opacity="0.65"/>
+                                <path d="M 15,85 L 245,85 L 240,138 C 240,148 190,155 130,155 C 70,155 20,148 20,138 Z" fill="#fcf8f2" stroke="#e6ded3" stroke-width="1.5"/>
+                                <path d="M 15,85 L 245,85 L 244,96 C 190,103 70,103 16,96 Z" fill="#8b263e"/>
+                                <path d="M 18,122 C 70,131 190,131 242,122 L 241,128 C 190,137 70,137 19,128 Z" fill="#8b263e"/>
+                                <path d="M 16,96 C 70,103 190,103 244,96 L 243,99 C 190,106 70,106 17,99 Z" fill="#d97736"/>
+                                <path d="M 112,88 L 148,88 L 148,150 C 138,153 122,153 112,150 Z" fill="#5c1424"/>
+                                <rect x="116" y="92" width="28" height="54" fill="#2d0a12" rx="3"/>
+                                <path d="M 116,92 L 144,92 L 144,96 L 116,96 Z" fill="#d97736"/>
+                                <path d="M 15,85 C 15,85 55,22 130,22 C 205,22 245,85 245,85 Z" fill="#ffffff" stroke="#ebdcd0" stroke-width="1.5"/>
+                                <path d="M 130,22 L 30,85 M 130,22 L 75,85 M 130,22 L 185,85 M 130,22 L 230,85" stroke="#d97736" stroke-width="2.2" opacity="0.75"/>
+                                <ellipse cx="130" cy="22" rx="28" ry="9" fill="#8b263e" stroke="#5c1424" stroke-width="1.5"/>
+                                <ellipse cx="130" cy="22" rx="20" ry="6" fill="#d97736"/>
+                                <ellipse cx="130" cy="22" rx="11" ry="3.5" fill="#2d0a12"/>
+                                <line x1="130" y1="16" x2="130" y2="28" stroke="#8b263e" stroke-width="1.5"/>
+                                <line x1="114" y1="22" x2="146" y2="22" stroke="#8b263e" stroke-width="1.5"/>
+                                <path d="M 130,16 C 126,5 138,-8 132,-22 C 126,-36 142,-50 136,-68 C 130,-82 144,-98 138,-115" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.45" stroke-linecap="round"/>
+                            </g>
 
-                    <g id="steppe-campfire" transform="translate(750, 305)">
-                        <ellipse cx="-38" cy="14" rx="11" ry="5.5" fill="#3a3036"/>
-                        <ellipse cx="-22" cy="20" rx="12" ry="6" fill="#4a4046"/>
-                        <ellipse cx="10" cy="21" rx="13" ry="6.5" fill="#3a3036"/>
-                        <ellipse cx="36" cy="15" rx="11" ry="5.5" fill="#4a4046"/>
-                        <ellipse cx="0" cy="22" rx="15" ry="7" fill="#2d252b"/>
-                        <line x1="-32" y1="16" x2="26" y2="-4" stroke="#5c3a21" stroke-width="9" stroke-linecap="round"/>
-                        <line x1="28" y1="16" x2="-26" y2="-4" stroke="#4a2e1a" stroke-width="9" stroke-linecap="round"/>
-                        <line x1="-20" y1="8" x2="20" y2="8" stroke="#3d2414" stroke-width="8" stroke-linecap="round"/>
-                        <ellipse cx="0" cy="8" rx="20" ry="7.5" fill="#ff3d00"/>
-                        <ellipse cx="0" cy="7" rx="13" ry="5" fill="#ffea00"/>
-                        <path d="M -20,8 C -26,-10 -9,-30 -3,-56 C 5,-36 20,-24 20,8 C 15,18 -15,18 -20,8 Z" fill="#ff3d00"/>
-                        <path d="M -14,8 C -17,-3 -5,-20 0,-40 C 5,-22 14,-11 14,8 C 9,14 -9,14 -14,8 Z" fill="#ff9100"/>
-                        <path d="M -9,8 C -11,0 -3,-12 0,-27 C 3,-14 9,-4 9,8 C 5,11 -5,11 -9,8 Z" fill="#ffea00"/>
-                        <ellipse cx="0" cy="5" rx="5" ry="8" fill="#ffffff" opacity="0.95"/>
-                        <circle cx="-9" cy="-62" r="2.2" fill="#ffea00"/>
-                        <circle cx="6" cy="-70" r="1.8" fill="#ff9100"/>
-                        <circle cx="-2" cy="-82" r="1.5" fill="#ffea00"/>
-                        <circle cx="13" cy="-54" r="1.9" fill="#ffea00"/>
-                        <circle cx="-15" cy="-45" r="1.6" fill="#ff9100"/>
-                        <circle cx="4" cy="-94" r="1.2" fill="#ffea00"/>
-                    </g>
+                            <!-- Костёр -->
+                            <g id="steppe-campfire" transform="translate(750, 305)">
+                                <ellipse cx="-38" cy="14" rx="11" ry="5.5" fill="#3a3036"/>
+                                <ellipse cx="-22" cy="20" rx="12" ry="6" fill="#4a4046"/>
+                                <ellipse cx="10" cy="21" rx="13" ry="6.5" fill="#3a3036"/>
+                                <ellipse cx="36" cy="15" rx="11" ry="5.5" fill="#4a4046"/>
+                                <ellipse cx="0" cy="22" rx="15" ry="7" fill="#2d252b"/>
+                                <line x1="-32" y1="16" x2="26" y2="-4" stroke="#5c3a21" stroke-width="9" stroke-linecap="round"/>
+                                <line x1="28" y1="16" x2="-26" y2="-4" stroke="#4a2e1a" stroke-width="9" stroke-linecap="round"/>
+                                <line x1="-20" y1="8" x2="20" y2="8" stroke="#3d2414" stroke-width="8" stroke-linecap="round"/>
+                                <ellipse cx="0" cy="8" rx="20" ry="7.5" fill="#ff3d00"/>
+                                <ellipse cx="0" cy="7" rx="13" ry="5" fill="#ffea00"/>
+                                <path d="M -20,8 C -26,-10 -9,-30 -3,-56 C 5,-36 20,-24 20,8 C 15,18 -15,18 -20,8 Z" fill="#ff3d00"/>
+                                <path d="M -14,8 C -17,-3 -5,-20 0,-40 C 5,-22 14,-11 14,8 C 9,14 -9,14 -14,8 Z" fill="#ff9100"/>
+                                <path d="M -9,8 C -11,0 -3,-12 0,-27 C 3,-14 9,-4 9,8 C 5,11 -5,11 -9,8 Z" fill="#ffea00"/>
+                                <ellipse cx="0" cy="5" rx="5" ry="8" fill="#ffffff" opacity="0.95"/>
+                                <circle cx="-9" cy="-62" r="2.2" fill="#ffea00"/>
+                                <circle cx="6" cy="-70" r="1.8" fill="#ff9100"/>
+                                <circle cx="-2" cy="-82" r="1.5" fill="#ffea00"/>
+                                <circle cx="13" cy="-54" r="1.9" fill="#ffea00"/>
+                                <circle cx="-15" cy="-45" r="1.6" fill="#ff9100"/>
+                                <circle cx="4" cy="-94" r="1.2" fill="#ffea00"/>
+                            </g>
 
-                    <g stroke="#3d2432" stroke-width="2" stroke-linecap="round" opacity="0.85">
-                        <line x1="120" y1="310" x2="112" y2="280"/>
-                        <line x1="128" y1="312" x2="126" y2="274"/>
-                        <line x1="136" y1="310" x2="144" y2="278"/>
-                        <line x1="1020" y1="290" x2="1012" y2="260"/>
-                        <line x1="1028" y1="292" x2="1027" y2="254"/>
-                        <line x1="1036" y1="291" x2="1046" y2="262"/>
-                    </g>
-                </svg>
+                            <!-- Трава -->
+                            <g stroke="#3d2432" stroke-width="2" stroke-linecap="round" opacity="0.85">
+                                <line x1="120" y1="310" x2="112" y2="280"/>
+                                <line x1="128" y1="312" x2="126" y2="274"/>
+                                <line x1="136" y1="310" x2="144" y2="278"/>
+                                <line x1="1020" y1="290" x2="1012" y2="260"/>
+                                <line x1="1028" y1="292" x2="1027" y2="254"/>
+                                <line x1="1036" y1="291" x2="1046" y2="262"/>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
             </div>
         </section>
 
