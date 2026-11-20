@@ -564,10 +564,10 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            background: #fdf8f4;
         }
 
-        .flavor-banner img,
-        .flavor-img {
+        .flavor-banner img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -578,11 +578,6 @@
         .flavor-card:hover .flavor-banner img {
             transform: scale(1.06);
         }
-
-        .flavor-1 { background: linear-gradient(135deg, #ffd7de 0%, #ffabb8 100%); }
-        .flavor-2 { background: linear-gradient(135deg, #d8e5ff 0%, #a9c6fc 100%); }
-        .flavor-3 { background: linear-gradient(135deg, #ffe2cc 0%, #ffba88 100%); }
-        .flavor-4 { background: linear-gradient(135deg, #e4d8ff 0%, #c0a8f8 100%); }
 
         .flavor-body {
             padding: 24px;
@@ -822,7 +817,6 @@
                 gap: 28px;
             }
 
-            /* На планшете уменьшаем текст, чтобы он умещался в небе */
             .yurt-title {
                 font-size: 1.75rem;
             }
@@ -905,7 +899,6 @@
                 height: 180px;
             }
 
-            /* На мобильном возвращаем текст ПОД картинку (иначе не влезет) */
             .yurt-text-wrap {
                 position: static;
                 transform: none;
@@ -1006,6 +999,7 @@
                 <div class="hero-visual">
                     <div class="product-card-preview">
                         <div class="product-card-image-wrapper">
+                            <!-- Если главная картинка тоже лежит в gt1, укажите путь, например: gt1/product.jpg -->
                             <img src="product.png"
                                  alt="Десертный курут «Разные Вкусы» с сублимированными ягодами"
                                  class="main-product-img"
@@ -1034,6 +1028,7 @@
 
                     <div class="grant-logo-wrapper">
                         <div class="grant-logo-box">
+                            <!-- Если логотип Фонда тоже в папке gt1, замените путь -->
                             <img src="fasie.png"
                                  alt="Фонд содействия инновациям"
                                  width="260" height="60"
@@ -1109,20 +1104,295 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Вкусовая палитра</span>
-                    <h2 class="section-title font-serif">Ягодная линейка</h2>
+                    <h2 class="section-title font-serif">Вкусовая линейка</h2> <!-- Изменено здесь -->
                     <p class="section-subtitle">
                         Природный баланс сливочной кислинки курута и сладости спелых ягод.
                     </p>
                 </div>
 
                 <div class="products-grid">
+                    <!-- Карточка 1 (A1) -->
                     <article class="flavor-card">
-                        <div class="flavor-banner flavor-1">
-                            <img src="gt/zemlyanika.jpg"
-                                 alt="Дикая Земляника"
-                                 class="flavor-img"
-                                 loading="lazy"
+                        <div class="flavor-banner">
+                            <img src="gt1/A1.jpg" 
+                                 alt="Дикая Земляника" 
+                                 loading="lazy" 
                                  decoding="async">
                         </div>
                         <div class="flavor-body">
-                            <
+                            <h3>Дикая Земляника</h3>
+                            <p>Нежный курут с кусочками ароматной лесной земляники. Мягкий десертный вкус с ягодным послевкусием.</p>
+                        </div>
+                    </article>
+
+                    <!-- Карточка 2 (K1) -->
+                    <article class="flavor-card">
+                        <div class="flavor-banner">
+                            <img src="gt1/K1.jpg" 
+                                 alt="Северная Черника" 
+                                 loading="lazy" 
+                                 decoding="async">
+                        </div>
+                        <div class="flavor-body">
+                            <h3>Северная Черника</h3>
+                            <p>Классическая основа с добавлением отборной спелой черники, богатой природными антиоксидантами.</p>
+                        </div>
+                    </article>
+
+                    <!-- Карточка 3 (M1) -->
+                    <article class="flavor-card">
+                        <div class="flavor-banner">
+                            <img src="gt1/M1.jpg" 
+                                 alt="Таёжная Брусника" 
+                                 loading="lazy" 
+                                 decoding="async">
+                        </div>
+                        <div class="flavor-body">
+                            <h3>Таёжная Брусника</h3>
+                            <p>Освежающее сочетание с приятной брусничной кислинкой для бодрости и тонуса.</p>
+                        </div>
+                    </article>
+
+                    <!-- Карточка 4 (S1) -->
+                    <article class="flavor-card">
+                        <div class="flavor-banner">
+                            <img src="gt1/S1.jpg" 
+                                 alt="Чёрная Смородина" 
+                                 loading="lazy" 
+                                 decoding="async">
+                        </div>
+                        <div class="flavor-body">
+                            <h3>Чёрная Смородина</h3>
+                            <p>Яркий, насыщенный ягодный аромат и природный запас витамина C из спелых ягод смородины.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH -->
+        <section id="tech" class="section section-light">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Научно-технический задел</span>
+                    <h2 class="section-title font-serif">Разработка и технология</h2>
+                    <p class="section-subtitle">
+                        Сочетание традиционной биотехнологии ферментации и щадящей низкотемпературной сушки ягод.
+                    </p>
+                </div>
+
+                <div class="tech-short-grid">
+                    <div class="tech-step-card">
+                        <div class="tech-step-badge">1</div>
+                        <h3>Биоферментация</h3>
+                        <p>Сбраживание натурального молока чистыми молочнокислыми культурами с получением плотной белковой основы традиционного курута.</p>
+                    </div>
+
+                    <div class="tech-step-card">
+                        <div class="tech-step-badge">2</div>
+                        <h3>Сублимация ягод</h3>
+                        <p>Вакуумное обезвоживание замороженных ягод (лиофилизация) без термической обработки, что сохраняет до 98% витаминов и природный вкус.</p>
+                    </div>
+
+                    <div class="tech-step-card">
+                        <div class="tech-step-badge">3</div>
+                        <h3>Рецептура и охрана РИД</h3>
+                        <p>Отработка стабильных пропорций курута и ягод, органолептические испытания и подготовка к регистрации прав на результат интеллектуальной деятельности.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HERITAGE -->
+        <section id="heritage" class="yurt-section">
+            <div class="yurt-stage">
+                <div class="yurt-text-wrap">
+                    <span class="yurt-tag">Наследие кочевников</span>
+                    <h2 class="yurt-title font-serif">Горы и традиции Башкортостана</h2>
+                    <p class="yurt-desc">
+                        В предгорьях Южного Урала курут веками согревал кочевников у ночного костра и давал силы в долгих переходах. Мы сохраняем природную силу родного края в натуральном ягодном десерте.
+                    </p>
+                </div>
+
+                <div class="yurt-svg-box">
+                    <svg viewBox="0 0 1200 620" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" class="yurt-scene-svg" role="img" aria-label="Пейзаж: горы Южного Урала, башкирская юрта и костёр">
+                        <defs>
+                            <radialGradient id="fireGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#ff9100" stop-opacity="0.95"/>
+                                <stop offset="35%" stop-color="#ff3d00" stop-opacity="0.6"/>
+                                <stop offset="70%" stop-color="#8b263e" stop-opacity="0.2"/>
+                                <stop offset="100%" stop-color="#1e1e24" stop-opacity="0"/>
+                            </radialGradient>
+                            <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#fdf6ee"/>
+                                <stop offset="25%" stop-color="#faeadb"/>
+                                <stop offset="50%" stop-color="#f5e1d3"/>
+                                <stop offset="75%" stop-color="#e8bfab"/>
+                                <stop offset="100%" stop-color="#c98a72"/>
+                            </linearGradient>
+                            <linearGradient id="mountFar" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#734252" stop-opacity="0.65"/>
+                                <stop offset="100%" stop-color="#4a2634" stop-opacity="0.95"/>
+                            </linearGradient>
+                            <linearGradient id="mountMid" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#522435" stop-opacity="0.9"/>
+                                <stop offset="100%" stop-color="#2c121d" stop-opacity="1"/>
+                            </linearGradient>
+                            <linearGradient id="hillFore" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#381926"/>
+                                <stop offset="100%" stop-color="#1e1e24"/>
+                            </linearGradient>
+                        </defs>
+
+                        <rect x="0" y="0" width="1200" height="620" fill="url(#skyGrad)"/>
+
+                        <g transform="translate(0, 200)">
+                            <path d="M 0,200 L 80,165 L 150,180 L 220,135 L 300,160 L 390,95 L 480,145 L 560,110 L 640,150 L 730,80 L 820,135 L 900,105 L 980,145 L 1070,90 L 1150,130 L 1200,105 L 1200,420 L 0,420 Z" fill="url(#mountFar)"/>
+                            <path d="M 0,240 Q 140,210 240,185 C 290,175 320,130 365,125 C 410,120 440,160 500,195 Q 620,215 700,180 C 760,160 800,115 850,110 C 900,105 940,150 1010,185 Q 1110,215 1200,175 L 1200,420 L 0,420 Z" fill="url(#mountMid)"/>
+                            <path d="M 0,285 Q 320,235 680,270 T 1200,250 L 1200,420 L 0,420 Z" fill="url(#hillFore)"/>
+                            <path d="M 0,335 Q 400,290 820,320 T 1200,300 L 1200,420 L 0,420 Z" fill="#1e1e24"/>
+
+                            <circle cx="750" cy="295" r="140" fill="url(#fireGlow)"/>
+
+                            <g id="nomadic-yurt" transform="translate(350, 160)">
+                                <ellipse cx="130" cy="142" rx="125" ry="18" fill="#140810" opacity="0.65"/>
+                                <path d="M 15,85 L 245,85 L 240,138 C 240,148 190,155 130,155 C 70,155 20,148 20,138 Z" fill="#fcf8f2" stroke="#e6ded3" stroke-width="1.5"/>
+                                <path d="M 15,85 L 245,85 L 244,96 C 190,103 70,103 16,96 Z" fill="#8b263e"/>
+                                <path d="M 18,122 C 70,131 190,131 242,122 L 241,128 C 190,137 70,137 19,128 Z" fill="#8b263e"/>
+                                <path d="M 16,96 C 70,103 190,103 244,96 L 243,99 C 190,106 70,106 17,99 Z" fill="#d97736"/>
+                                <path d="M 112,88 L 148,88 L 148,150 C 138,153 122,153 112,150 Z" fill="#5c1424"/>
+                                <rect x="116" y="92" width="28" height="54" fill="#2d0a12" rx="3"/>
+                                <path d="M 116,92 L 144,92 L 144,96 L 116,96 Z" fill="#d97736"/>
+                                <path d="M 15,85 C 15,85 55,22 130,22 C 205,22 245,85 245,85 Z" fill="#ffffff" stroke="#ebdcd0" stroke-width="1.5"/>
+                                <path d="M 130,22 L 30,85 M 130,22 L 75,85 M 130,22 L 185,85 M 130,22 L 230,85" stroke="#d97736" stroke-width="2.2" opacity="0.75"/>
+                                <ellipse cx="130" cy="22" rx="28" ry="9" fill="#8b263e" stroke="#5c1424" stroke-width="1.5"/>
+                                <ellipse cx="130" cy="22" rx="20" ry="6" fill="#d97736"/>
+                                <ellipse cx="130" cy="22" rx="11" ry="3.5" fill="#2d0a12"/>
+                                <line x1="130" y1="16" x2="130" y2="28" stroke="#8b263e" stroke-width="1.5"/>
+                                <line x1="114" y1="22" x2="146" y2="22" stroke="#8b263e" stroke-width="1.5"/>
+                                <path d="M 130,16 C 126,5 138,-8 132,-22 C 126,-36 142,-50 136,-68 C 130,-82 144,-98 138,-115" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.45" stroke-linecap="round"/>
+                            </g>
+
+                            <g id="steppe-campfire" transform="translate(750, 305)">
+                                <ellipse cx="-38" cy="14" rx="11" ry="5.5" fill="#3a3036"/>
+                                <ellipse cx="-22" cy="20" rx="12" ry="6" fill="#4a4046"/>
+                                <ellipse cx="10" cy="21" rx="13" ry="6.5" fill="#3a3036"/>
+                                <ellipse cx="36" cy="15" rx="11" ry="5.5" fill="#4a4046"/>
+                                <ellipse cx="0" cy="22" rx="15" ry="7" fill="#2d252b"/>
+                                <line x1="-32" y1="16" x2="26" y2="-4" stroke="#5c3a21" stroke-width="9" stroke-linecap="round"/>
+                                <line x1="28" y1="16" x2="-26" y2="-4" stroke="#4a2e1a" stroke-width="9" stroke-linecap="round"/>
+                                <line x1="-20" y1="8" x2="20" y2="8" stroke="#3d2414" stroke-width="8" stroke-linecap="round"/>
+                                <ellipse cx="0" cy="8" rx="20" ry="7.5" fill="#ff3d00"/>
+                                <ellipse cx="0" cy="7" rx="13" ry="5" fill="#ffea00"/>
+                                <path d="M -20,8 C -26,-10 -9,-30 -3,-56 C 5,-36 20,-24 20,8 C 15,18 -15,18 -20,8 Z" fill="#ff3d00"/>
+                                <path d="M -14,8 C -17,-3 -5,-20 0,-40 C 5,-22 14,-11 14,8 C 9,14 -9,14 -14,8 Z" fill="#ff9100"/>
+                                <path d="M -9,8 C -11,0 -3,-12 0,-27 C 3,-14 9,-4 9,8 C 5,11 -5,11 -9,8 Z" fill="#ffea00"/>
+                                <ellipse cx="0" cy="5" rx="5" ry="8" fill="#ffffff" opacity="0.95"/>
+                                <circle cx="-9" cy="-62" r="2.2" fill="#ffea00"/>
+                                <circle cx="6" cy="-70" r="1.8" fill="#ff9100"/>
+                                <circle cx="-2" cy="-82" r="1.5" fill="#ffea00"/>
+                                <circle cx="13" cy="-54" r="1.9" fill="#ffea00"/>
+                                <circle cx="-15" cy="-45" r="1.6" fill="#ff9100"/>
+                                <circle cx="4" cy="-94" r="1.2" fill="#ffea00"/>
+                            </g>
+
+                            <g stroke="#3d2432" stroke-width="2" stroke-linecap="round" opacity="0.85">
+                                <line x1="120" y1="310" x2="112" y2="280"/>
+                                <line x1="128" y1="312" x2="126" y2="274"/>
+                                <line x1="136" y1="310" x2="144" y2="278"/>
+                                <line x1="1020" y1="290" x2="1012" y2="260"/>
+                                <line x1="1028" y1="292" x2="1027" y2="254"/>
+                                <line x1="1036" y1="291" x2="1046" y2="262"/>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Энергия кочевников</h4>
+                    <p>
+                        Натуральный десерт на основе традиционного башкирского курута с добавлением сублимированных лесных ягод. Сила традиций Башкортостана.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Навигация</h4>
+                    <ul class="footer-links">
+                        <li><a href="#grant-info">Поддержка Фонда</a></li>
+                        <li><a href="#about">О десерте</a></li>
+                        <li><a href="#flavors">Линейка вкусов</a></li>
+                        <li><a href="#tech">Технология</a></li>
+                        <li><a href="#heritage">Традиции и юрта</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Проект и правообладатель</h4>
+                    <p><strong>Руководитель:</strong> Саиткулов Данис Забирович</p>
+                    <p><strong>Тема проекта:</strong> «Энергия кочевников теперь с ягодами!»</p>
+                    <p>Республика Башкортостан, г. Стерлитамак</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2025–2026 Проект «Энергия кочевников». Все права защищены.</div>
+                <div>Разработано в рамках выполнения этапа 2 Договора № 2068ГССС27/107905</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Наверх">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var backToTopBtn = document.getElementById('backToTop');
+
+            function toggleBackToTop() {
+                if (window.scrollY > 320) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            }
+
+            backToTopBtn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            window.addEventListener('scroll', toggleBackToTop, { passive: true });
+            toggleBackToTop();
+
+            document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+                anchor.addEventListener('click', function (e) {
+                    var targetId = this.getAttribute('href');
+                    if (!targetId || targetId === '#') {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        return;
+                    }
+                    var targetElement = document.getElementById(targetId.slice(1));
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
